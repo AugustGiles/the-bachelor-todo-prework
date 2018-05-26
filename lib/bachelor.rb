@@ -12,8 +12,8 @@ def get_contestant_name(data, occupation)
   return_value = []
   data.each do |i, stats|
     stats.each do |individuals|
-      if individuals[:occupation] == occupation
-        return_value.push(individuals[:name])
+      if individuals["occupation"] == occupation
+        return_value.push(individuals["name"])
       end
     end
   end
@@ -24,8 +24,8 @@ def count_contestants_by_hometown(data, hometown)
   return_value = []
   data.each do |i, stats|
     stats.each do |individuals|
-      if individuals[:hometown] == hometown
-        return_value.push(individuals[:name])
+      if individuals["hometown"] == hometown
+        return_value.push(individuals["name"])
       end
     end
   end
@@ -36,8 +36,8 @@ def get_occupation(data, hometown)
   return_value = []
   data.each do |i, stats|
     stats.each do |individuals|
-      if individuals[:hometown] == hometown
-        return_value.push(individuals[:occupation])
+      if individuals["hometown"] == hometown
+        return_value.push(individuals["occupation"])
       end
     end
   end
@@ -49,7 +49,7 @@ def get_average_age_for_season(data, season)
   data.each do |i, stats|
     if i==:"#{season}"
       stats.each do |individuals|
-        age_array.push(individuals[:age])
+        age_array.push(individuals["age"])
       end
     end
   end
