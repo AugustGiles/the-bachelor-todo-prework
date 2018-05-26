@@ -41,7 +41,7 @@ def get_occupation(data, hometown)
       end
     end
   end
-  return_value[0].join(", ")
+  return_value[0]
 end
 
 def get_average_age_for_season(data, season)
