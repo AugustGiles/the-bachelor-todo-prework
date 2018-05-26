@@ -1,7 +1,7 @@
 def get_first_name_of_season_winner(data, season)
   return_value = []
   data.each do |i, stats|
-    if i==:"season #{season}"
+    if i==:"#{season}"
       stats.each do |individuals|
         if individuals[:status] == "Winner"
           return_value.push(individuals[:name])
@@ -21,7 +21,7 @@ def get_contestant_name(data, occupation)
       end
     end
   end
-  return_value
+  return_value.join(", ")
 end
 
 def count_contestants_by_hometown(data, hometown)
@@ -33,7 +33,7 @@ def count_contestants_by_hometown(data, hometown)
       end
     end
   end
-  return_value.length
+  return_value.length.to_i
 end
 
 def get_occupation(data, hometown)
@@ -45,13 +45,13 @@ def get_occupation(data, hometown)
       end
     end
   end
-  return_value[0]
+  return_value[0].join(", ")
 end
 
 def get_average_age_for_season(data, season)
   age_array = []
   data.each do |i, stats|
-    if i==:"season #{season}"
+    if i==:"#{season}"
       stats.each do |individuals|
         age_array.push(individuals[:age])
       end
@@ -63,7 +63,8 @@ def get_average_age_for_season(data, season)
     count = count + item.to_i
   end
 
-  return_value = count / age_array.length
+  return_value = count.to_f / age_array.length
+  return_value.round
 end
 
 #note
