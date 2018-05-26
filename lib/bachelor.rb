@@ -54,12 +54,13 @@ def get_average_age_for_season(data, season)
     end
   end
 
-  count = 0
+  count = 0.00
   age_array.each do |item|
     count = count + item.to_i
   end
 
-  return_value = (count.to_f / age_array.length).round
+  return_value = count / age_array.length
+  return_value.round
 end
 
 #note
