@@ -49,13 +49,19 @@ def get_occupation(data, hometown)
 end
 
 def get_average_age_for_season(data, season)
-  return_value = []
+  age_array = []
   data.each do |i, stats|
     if i==:"season #{season}"
       stats.each do |individuals|
-        return_value.push(individuals[:age])
+        age_array.push(individuals[:age])
       end
     end
   end
-  return_value
+
+  count = 0
+  age_array.each do |item|
+    count = count + item.to_i
+  end
+
+  return_value = count / age_array.length
 end
