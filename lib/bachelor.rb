@@ -46,12 +46,8 @@ end
 
 def get_average_age_for_season(data, season)
   age_array = []
-  data.each do |i, stats|
-    if i==:"#{season}"
-      stats.each do |individuals|
-        age_array.push(individuals["age"])
-      end
-    end
+  data[season].each do |individuals|
+    age_array.push(individuals["age"])
   end
 
   count = 0.00
